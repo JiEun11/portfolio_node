@@ -4,6 +4,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import "express-async-errors";
 import skillRouter from "./router/skills.js";
+import { db } from "./db/database.js";
 
 const app = express();
 
@@ -23,4 +24,5 @@ app.use((error, req, res, next) => {
   res.sendStatus(500);
 });
 
+db.getConnection().then((connection) => console.log(connection));
 app.listen(8080);
