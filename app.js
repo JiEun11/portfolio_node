@@ -1,40 +1,26 @@
 import express from "express";
-import fs from "fs";
-import fsAsync from "fs/promises";
+import cors from "cors";
+import morgan from "morgan";
+import helmet from "helmet";
 import "express-async-errors";
+import skillRouter from "./router/skills.js";
 
 const app = express();
 
 app.use(express.json());
+app.use(helmet());
+app.use(cors());
+app.use(morgan("tiny"));
 
-app
-  .route("/posts")
-  .get((req, res, next) => {
-    res.status(201).send("GET: /posts");
-  })
-  .post((req, res) => {
-    res.status(201).send("POST: /posts");
-  });
+app.use("/skills", skillRouter);
 
-app.get("/posts", (req, res) => {
-  res.status(201).send("GET: /posts");
+app.use((req, res, next) => {
+  res.sendStatus(404);
 });
 
-app.post("/posts", (req, res) => {
-  res.status(201).send("POST: /posts");
-});
-
-app.put("/posts/:id", () => {
-  res.status(201).send("PUT: /posts/:id");
-});
-
-app.delete("/posts/:id", () => {
-  res.status(201).send("DELETE: /posts/:id");
-});
-
-app.use((error) => {
+app.use((error, req, res, next) => {
   console.error(error);
-  res.status(500).json({ message: "Something went wrong" });
+  res.sendStatus(500);
 });
 
 app.listen(8080);
