@@ -36,10 +36,47 @@ router.get("/", (req, res, next) => {
   res.status(200).json(data);
 });
 // GET /skills/:id
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  const skill = skills.find((skill) => skill.id === id);
+  if (skill) {
+    res.status(200).json(skill);
+  } else {
+    res.status(404).json({ message: `Skill id(${id}) is not found !!!` });
+  }
+});
 
 // POST /skills
+router.post("/", (req, res, next) => {
+  const { categoryId, name } = req.body;
+  const skill = {
+    id: Date.now().toString(),
+    name,
+    categoryId,
+    createdAt: Date.now().toString(),
+    lastUpdated: Date.now().toString(),
+  };
+  skills = [skill, ...skills]; // 최근에 추가한 skill이 가장 앞에 오도록
+  res.status(201).json(skill);
+});
 
 // PUT /skills/:id
+router.put("/:id", (req, res, next) => {
+  const id = req.params.id;
+  const name = req.body.name;
+  const skill = skills.find((skill) => skill.id === id);
+  if (skill) {
+    skill.name = name;
+    res.status(200).json(skill);
+  } else {
+    res.status(404).json({ message: `Skill id(${id}) is not found!!!` });
+  }
+});
 
 // DELETE /skills/:id
+router.delete("/:id", (req, res, next) => {
+  const id = req.params.id;
+  skills = skills.filter((skill) => skill.id !== id);
+  res.sendStatus(204);
+});
 export default router;
