@@ -2,9 +2,6 @@
 
 $(document).ready(function () {
   console.log("jQuery 먹히기");
-  $.ajax("/skills", function (response) {
-    console.log(response);
-  });
 });
 
 // Make navbar transparent when it is on the top
@@ -28,12 +25,31 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
+  if (link == "#skills") {
+    console.log("skills tab open");
+    getSkillsList();
+  }
   console.log(event.target.dataset.link);
   // const scrollTo = document.querySelector(link);
   // scrollTo.scrollIntoView({behavior: "smooth"});
   navbarMenu.classList.remove("open");
   scrollIntoView(link);
 });
+
+function getSkillsList() {
+  $.ajax({
+    url: "/skills",
+    async: true,
+    type: "get",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      // if (response.result !== "success") {
+      //   return;
+      // }
+    },
+  });
+}
 
 // Navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
