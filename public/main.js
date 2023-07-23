@@ -44,9 +44,24 @@ function getSkillsList() {
     dataType: "json",
     success: function (response) {
       console.log(response);
+      let html = "";
+      const skillsArray = response;
+      for (let i = 0; i < skillsArray.length; i++) {
+        let { categoryId, name } = skillsArray[i];
+        html +=
+          "<div class='skill__description'><span>" +
+          name +
+          "</span><span>90%</span>";
+        html +=
+          "<div class='skill__bar'> <div class='skill__value' style='width: 90%''></div></div></div>";
+      }
       // if (response.result !== "success") {
       //   return;
       // }
+      // $(".skill").append(html);
+    },
+    error: function (response) {
+      console.log(response.status);
     },
   });
 }
