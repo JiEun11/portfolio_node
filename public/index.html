@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bella's Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio for world-renowned software engineer Bella"
+    />
+    <meta name="author" content="Bella" />
+    <link rel="icon" type="image/png" href="imgs/favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/3e595d06f7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>;
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <i class="fab fa-diaspora"></i>
+        <a href="#">Bella</a>
+      </div>
+        <ul class="navbar__menu">
+          <li class="navbar__menu__item active" data-link="#home">Home</li>
+          <li class="navbar__menu__item" data-link="#about">About</li>
+          <li class="navbar__menu__item" data-link="#skills">Skills</li>
+          <li class="navbar__menu__item" data-link="#work">My work</li>
+          <li class="navbar__menu__item" data-link="#testimonials">Testimonials</li>
+          <li class="navbar__menu__item" data-link="#contact">Contact</li>
+        </ul>
+      <!-- Toggle button -->
+      <button class="navbar__toggle-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Home -->
+    <section id="home">
+      <div class="home__container">
+        <img
+          src="imgs/Bella.JPG"
+          alt="Bella's profile photo"
+          class="home__avatar"
+        />
+        <h1 class="home__title">Hello, <br />I'm Dream Coder</h1>
+        <h2 class="home__description">Full of inspiration</h2>
+        <button class="home__contact">Contact Me</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section__container">
+      <h1>About me</h1>
+      <p>Introduce myself</p>
+      <div class="about__majors">
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <h2 class="major__title">Front-end</h2>
+          <div class="major__description">
+            HTML, CSS, JavaScript, TypeScript,
+            <br />React, Vue, Web APIs
+          </div>
+        </div>
+
+        <div class="major">
+          <div class="major__icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h2 class="major__title">Back-end</h2>
+          <div class="major__description">
+            Java, JavaScript, jQuery, AJAX
+            <br />NodeJS, Oracle, AWS, MySQL
+          </div>
+        </div>
+
+        <div class="major">
+          <div class="major__icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h2 class="major__title">Data-Analysis</h2>
+          <div class="major__description">
+            Python, Machine Learning, Tensorflow,
+            <br />R, Weka, Excel
+          </div>
+        </div>
+      </div>
+      <div class="about__jobs">
+        <div class="job">
+          <img src="imgs/jobs/dku.png" alt="Dankook Univ" class="job__logo" />
+          <div class="job__description">
+            <p class="job__name">Undergraduate resercher</p>
+            <p class="job__period">2019 Jan - Until 2020 March</p>
+          </div>
+        </div>
+        <div class="job">
+          <img
+            src="imgs/jobs/vsb-tuo.png"
+            alt="Technical University of Ostrava"
+            class="job__logo"
+          />
+          <div class="job__description">
+            <p class="job__name">Erasmus Student</p>
+            <p class="job__period">2020 Sep - Until 2021 Feb</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="section__container">
+        <h1>Skills</h1>
+        <h2>Skills & Attributes</h2>
+        <p>Passion for learning new technologies.</p>
+        <div class="skillset">
+          <div class="skillset__left">
+            <h3 class="skillset__title">Skills</h3>
+            <div class="skill">
+              <div class="skill__description">
+                <span>HTML</span>
+                <span>90%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="skill__description">
+                <span>CSS</span>
+                <span>90%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="skill__description">
+                <span>JavaScript</span>
+                <span>90%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skillset__right">
+            <div class="tools">
+              <h3 class="sillset__title">Tools</h3>
+              <ul class="tools__list">
+                <li><span>Visual Studio Code</span></li>
+                <li><span>IntelliJ</span></li>
+                <li><span>Anaconda</span></li>
+                <li><span>PyCharm</span></li>
+                <li><span>Weka</span></li>
+              </ul>
+            </div>
+
+            <div class="etc">
+              <h3 class="sillset__title">Etc</h3>
+              <ul class="etc__list">
+                <li><span>Git</span></li>
+                <li><span>Scrum master</span></li>
+                <li><span>Math</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="section">
+      <div class="section__container">
+        <h1>My work</h1>
+        <h3>Projects</h3>
+        <div class="work__categories">
+          <button class="category__btn selected" data-filter="*">
+            All<span class="category__count">8</span>
+          </button>
+          <button class="category__btn" data-filter="front-end">
+            Front-End<span class="category__count">3</span>
+          </button>
+          <button class="category__btn" data-filter="back-end">
+            Back-End<span class="category__count">3</span>
+          </button>
+          <button class="category__btn" data-filter="data-analysis">
+            Data-Analysis<span class="category__count">2</span>
+          </button>
+        </div>
+  
+        <div class="work__projects">
+          <a
+            href="https://github.com/JiEun11/portfolio"
+            class="project"
+            target="blank"
+            data-type="front-end"
+          >
+            <img
+              class="project__img"
+              src="imgs/projects/project1.png"
+              alt="Youtube"
+            />
+            <div class="project__description">
+              <h3>Youtube Site</h3>
+              <span>Clone coding with HTML and CSS</span>
+            </div>
+          </a>
+  
+          <a
+            href="https://github.com/JiEun11/portfolio"
+            class="project"
+            target="blank"
+            data-type="front-end"
+          >
+            <img
+              class="project__img"
+              src="imgs/projects/project2.png"
+              alt="mobile"
+            />
+            <div class="project__description">
+              <h3>Application</h3>
+              <span>Application with iOS</span>
+            </div>
+          </a>
+  
+          <a
+            href="https://github.com/JiEun11/portfolio"
+            class="project"
+            target="blank"
+            data-type="back-end"
+          >
+            <img
+              class="project__img"
+              src="imgs/projects/project3.png"
+              alt="mobile"
+            />
+            <div class="project__description">
+              <h3>Application</h3>
+              <span>Application with iOS</span>
+            </div>
+          </a>    
+          
+          <a
+          href="https://github.com/JiEun11/portfolio"
+          class="project"
+          target="blank"
+          data-type="data-analysis"
+        >
+          <img
+            class="project__img"
+            src="imgs/projects/project4.png"
+            alt="mobile"
+          />
+          <div class="project__description">
+            <h3>Web</h3>
+            <span>Web with Android</span>
+          </div>
+        </a> 
+
+        <a
+        href="https://github.com/JiEun11/portfolio"
+        class="project"
+        target="blank"
+        data-type="front-end"
+      >
+        <img
+          class="project__img"
+          src="imgs/projects/project5.png"
+          alt="mobile"
+        />
+        <div class="project__description">
+          <h3>Mobile iOS</h3>
+          <span>Application with iOS</span>
+        </div>
+      </a> 
+
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
+      <div class="section__container">
+        <h1>Testimonials</h1>
+        <h3>See what they say about me</h3>
+        <div class="testimonials">
+          <div class="testimonial">
+            <img
+              src="imgs/testimonial/people1.jpg"
+              alt="testimonial_people1"
+              class="testimonial__avatar"
+            />
+            <div class="testimonial__speech-bubble">
+              <p>
+                Full of Passion. It's hard to learning something new but never
+                give up. I can do my best whatever I do, wherever I do.
+              </p>
+              <p class="testimonial__speech__name">
+                <a href="">Bella</a> / DKU
+              </p>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__speech-bubble">
+              <p>
+                Full of Passion. It's hard to learning something new but never
+                give up. I can do my best whatever I do, wherever I do.
+              </p>
+              <p class="testimonial__speech__name">
+                <a href="">Bella</a> / DKU
+              </p>
+            </div>
+            <img
+              src="imgs/testimonial/people1.jpg"
+              alt="testimonial_people1"
+              class="testimonial__avatar"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h1 class="contact__title">Let's talk</h1>
+      <h2 class="contact__email">shdudtnr3939@gmail.com</h2>
+      <div class="contact__links">
+        <a href="https://github.com/JiEun11/portfolio" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCffzrqaHP8JB53GHuzmLMDw"
+          target="_blank"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <p class="contact__rights">
+        2021 Bella's Dream Coding All rights reserved
+      </p>
+    </section>
+
+    <!-- Arrow up -->
+    <button class="arrow-up">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </body>
+</html>
