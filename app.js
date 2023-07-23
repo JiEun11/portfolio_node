@@ -5,8 +5,10 @@ import helmet from "helmet";
 import "express-async-errors";
 import skillRouter from "./router/skills.js";
 import { db } from "./db/database.js";
+import * as path from "path";
 
 const app = express();
+const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(helmet());
@@ -14,6 +16,8 @@ app.use(cors());
 app.use(morgan("tiny"));
 
 app.use("/skills", skillRouter);
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   res.sendStatus(404);
