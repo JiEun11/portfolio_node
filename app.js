@@ -11,13 +11,12 @@ const app = express();
 const __dirname = path.resolve();
 
 app.use(express.json());
-app.use(helmet());
-app.use(cors());
-app.use(morgan("tiny"));
+app.use(express.static(path.join(__dirname, "public")));
+// app.use(helmet());
+// app.use(cors());
+// app.use(morgan("tiny"));
 
 app.use("/skills", skillRouter);
-
-app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   res.sendStatus(404);
