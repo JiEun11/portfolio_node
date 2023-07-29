@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(cors());
 // app.use(morgan("tiny"));
 
+app.use(express.urlencoded({ extended: true })); // application-
 app.use("/skills", skillRouter);
 
 app.use((req, res, next) => {
