@@ -1,9 +1,5 @@
 "use strict";
 
-$(document).ready(function () {
-  console.log("jQuery 먹히기");
-});
-
 // Make navbar transparent when it is on the top
 const navbar = document.querySelector("#navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
@@ -27,7 +23,8 @@ navbarMenu.addEventListener("click", (event) => {
   }
   if (link == "#skills") {
     console.log("skills tab open");
-    getSkillsList();
+    const skills = getSkillsList();
+    skills.then((res) => console.log(res));
   }
   console.log(event.target.dataset.link);
   // const scrollTo = document.querySelector(link);
@@ -36,35 +33,24 @@ navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(link);
 });
 
-function getSkillsList() {
-  $.ajax({
-    url: "/skills",
-    async: true,
-    type: "get",
-    dataType: "json",
-    success: function (response) {
-      console.log(response);
-      let html = "";
-      const skillsArray = response;
-      for (let i = 0; i < skillsArray.length; i++) {
-        let { categoryId, name } = skillsArray[i];
-        html +=
-          "<div class='skill__description'><span>" +
-          name +
-          "</span><span>90%</span>";
-        html +=
-          "<div class='skill__bar'> <div class='skill__value' style='width: 90%''></div></div></div>";
-      }
-      // if (response.result !== "success") {
-      //   return;
-      // }
-      // $(".skill").append(html);
-    },
-    error: function (response) {
-      console.log(response.status);
-    },
-  });
-}
+const getSkillsList = async () => {
+  try {
+    const url = "http://localhost:8080/skills";
+    const option = {
+      method: "GET",
+    };
+    const response = await fetch(url, option);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      const errorData = await response.json();
+      throw errorData;
+    }
+  } catch (err) {
+    throw err;
+  }
+};
 
 // Navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
