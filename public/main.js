@@ -23,9 +23,9 @@ navbarMenu.addEventListener("click", (event) => {
   }
   if (link == "#skills") {
     console.log("skills tab open");
-    const skills = getSkillsList();
-    skills.then((res) => console.log(res));
+    fetchSkillsList();
   }
+
   console.log(event.target.dataset.link);
   // const scrollTo = document.querySelector(link);
   // scrollTo.scrollIntoView({behavior: "smooth"});
@@ -33,7 +33,7 @@ navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(link);
 });
 
-const getSkillsList = async () => {
+const fetchSkillsList = async () => {
   try {
     const url = "http://localhost:8080/skills";
     const option = {
@@ -42,6 +42,7 @@ const getSkillsList = async () => {
     const response = await fetch(url, option);
     if (response.ok) {
       const data = await response.json();
+      // 여기서 데이터 조작 조작
       return data;
     } else {
       const errorData = await response.json();
