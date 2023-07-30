@@ -46,21 +46,27 @@ const fetchSkillsList = async () => {
       // 여기서 데이터 조작 조작
       console.log(data);
       let skillsetTittle = document.querySelector(".skillset__title");
-      for (let i = 0; i < data.length; i++) {
-        let skillArea = document.createElement("div");
-        skillArea.setAttribute("class", "skill");
+      let skillsetTitleChild = document.querySelector(".skillset__title div");
+      console.log(skillsetTitleChild);
+      if (skillsetTitleChild == null) {
+        // 일단 자식 없을 경우만 그려주도록, create 되어서 List 변경 시는 아직 구현X
+        for (let i = 0; i < data.length; i++) {
+          let skillArea = document.createElement("div");
+          skillArea.setAttribute("class", "skill");
 
-        let skillDescription = document.createElement("div");
-        skillDescription.setAttribute("class", "skill__description");
+          let skillDescription = document.createElement("div");
+          skillDescription.setAttribute("class", "skill__description");
 
-        let newSkill = document.createElement("span");
-        newSkill.setAttribute("class", "skill__name");
-        newSkill.innerHTML = data[i].name;
+          let newSkill = document.createElement("span");
+          newSkill.setAttribute("class", "skill__name");
+          newSkill.innerHTML = data[i].name;
 
-        skillArea.appendChild(skillDescription);
-        skillDescription.appendChild(newSkill);
-        skillsetTittle.appendChild(skillArea);
+          skillArea.appendChild(skillDescription);
+          skillDescription.appendChild(newSkill);
+          skillsetTittle.appendChild(skillArea);
+        }
       }
+
       return data;
     } else {
       const errorData = await response.json();
