@@ -33,6 +33,20 @@ navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(link);
 });
 
+// Create a new skill when click the "Create" Button
+const createSkillBtn = document.querySelector(".skills__crud");
+createSkillBtn.addEventListener("click", (event) => {
+  const target = event.target;
+  const skillCrudBtnId = target.id;
+  if (skillCrudBtnId === "skill__create") {
+    console.log("create");
+  } else if (skillCrudBtnId === "skill__update") {
+    console.log("update");
+  } else if (skillCrudBtnId === "skill__delete") {
+    console.log("delete");
+  }
+});
+
 // skill tab 클릭 시 API로 skills list 가져옴
 const fetchSkillsList = async () => {
   try {
