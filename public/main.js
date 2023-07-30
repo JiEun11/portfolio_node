@@ -33,6 +33,7 @@ navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(link);
 });
 
+// skill tab 클릭 시 API로 skills list 가져옴
 const fetchSkillsList = async () => {
   try {
     const url = "http://localhost:8080/skills";
@@ -43,6 +44,23 @@ const fetchSkillsList = async () => {
     if (response.ok) {
       const data = await response.json();
       // 여기서 데이터 조작 조작
+      console.log(data);
+      let skillsetTittle = document.querySelector(".skillset__title");
+      for (let i = 0; i < data.length; i++) {
+        let skillArea = document.createElement("div");
+        skillArea.setAttribute("class", "skill");
+
+        let skillDescription = document.createElement("div");
+        skillDescription.setAttribute("class", "skill__description");
+
+        let newSkill = document.createElement("span");
+        newSkill.setAttribute("class", "skill__name");
+        newSkill.innerHTML = data[i].name;
+
+        skillArea.appendChild(skillDescription);
+        skillDescription.appendChild(newSkill);
+        skillsetTittle.appendChild(skillArea);
+      }
       return data;
     } else {
       const errorData = await response.json();
